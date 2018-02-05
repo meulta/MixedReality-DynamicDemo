@@ -47,25 +47,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib">
-      <HintPath>D:\Program Files\Unity\Editor\Data\Mono\lib\mono\4.6-api\mscorlib.dll</HintPath>
+      <HintPath>D:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.6-api\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>D:\Program Files\Unity\Editor\Data\Mono\lib\mono\4.6-api\System.dll</HintPath>
+      <HintPath>D:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.6-api\System.dll</HintPath>
     </Reference>
     <Reference Include="System.XML">
-      <HintPath>D:\Program Files\Unity\Editor\Data\Mono\lib\mono\4.6-api\System.XML.dll</HintPath>
+      <HintPath>D:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.6-api\System.XML.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>D:\Program Files\Unity\Editor\Data\Mono\lib\mono\4.6-api\System.Core.dll</HintPath>
+      <HintPath>D:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.6-api\System.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp">
-      <HintPath>D:\Program Files\Unity\Editor\Data\Mono\lib\mono\4.6-api\Microsoft.CSharp.dll</HintPath>
+      <HintPath>D:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.6-api\Microsoft.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization">
-      <HintPath>D:\Program Files\Unity\Editor\Data\Mono\lib\mono\4.6-api\System.Runtime.Serialization.dll</HintPath>
+      <HintPath>D:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.6-api\System.Runtime.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <HintPath>D:\Program Files\Unity\Editor\Data\Mono\lib\mono\4.6-api\System.Xml.Linq.dll</HintPath>
+      <HintPath>D:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.6-api\System.Xml.Linq.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
