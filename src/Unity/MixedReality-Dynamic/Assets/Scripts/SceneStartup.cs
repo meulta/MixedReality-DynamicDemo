@@ -4,13 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneStartup : MonoBehaviour
 {
+ 
+
     // Use this for initialization
     void Start()
     {
         Load3DObjects();
+
+        
     }
 
     async void Load3DObjects()
@@ -27,7 +32,7 @@ public class SceneStartup : MonoBehaviour
             storedObjectComponent.storedObject = obj;
         }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
