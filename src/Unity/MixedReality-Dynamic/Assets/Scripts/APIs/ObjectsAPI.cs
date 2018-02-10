@@ -11,23 +11,24 @@ using UnityEngine.Networking;
 
 public class ObjectsAPI: MonoBehaviour {
 
+    private static string UrlTemplate = "https://dynamicmr.azurewebsites.net/api/{0}?code=1ikEUkA26LG9KPsOAczkZ6tzDxYMeMMAAoM2t2pbKVPI0l7FrJoUrA==";
+
     public static async Task<IEnumerable<UnityPrimitive>> FetchSceneData()
     {
-        var url = $"http://localhost:7071/api/GetObjects";
+        var url = string.Format(UrlTemplate, "GetObjects");
         var uri = new Uri(url);
 #if UNITY_EDITOR
         var webClient = new WebClient();
         var json = await webClient.DownloadStringTaskAsync(uri);
-        Debug.LogWarning(json);
         return JsonConvert.DeserializeObject<IEnumerable<UnityPrimitive>>(json);
 #else
         var client = new Windows.Web.Http.HttpClient();
         Windows.Web.Http.HttpResponseMessage response = await client.GetAsync(uri);
-        SceneData result = null;
+        IEnumerable<UnityPrimitive> result = null;
         if (response.IsSuccessStatusCode)
         {
             var stringres = await response.Content.ReadAsStringAsync();
-            result = JsonConvert.DeserializeObject<SceneData>(stringres);
+            result = JsonConvert.DeserializeObject<IEnumerable<UnityPrimitive>>(stringres);
         }
 
         return result;
@@ -36,7 +37,8 @@ public class ObjectsAPI: MonoBehaviour {
 
     public static void UpdateObject(UnityPrimitive updatedObject)
     {
-        var url = $"http://localhost:7071/api/UpdateObject";
+        //Here is an example of how to use WWW class
+        var url = string.Format(UrlTemplate, "UpdateObject");
         Dictionary<string, string> headers = new Dictionary<string, string>();
         headers.Add("Content-Type", "application/json");
         string data =  JsonConvert.SerializeObject(updatedObject);
@@ -44,12 +46,20 @@ public class ObjectsAPI: MonoBehaviour {
         WWW api = new WWW(url, pData, headers);
     }
 
+#if UNITY_EDITOR
     public static UnityPrimitive CreateObject(UnityPrimitive updatedObject)
+ #else
+    public static async Task<UnityPrimitive> CreateObject(UnityPrimitive updatedObject)
+#endif
     {
-        var url = $"http://localhost:7071/api/CreateObject";
+
+        //Here is an example of how to use WebClient class and HttpClient class in UWP
+
+        var url = string.Format(UrlTemplate, "CreateObject");
+        var data = JsonConvert.SerializeObject(updatedObject, Formatting.Indented);
+
 #if UNITY_EDITOR
         var webClient = new WebClient();
-        var data = JsonConvert.SerializeObject(updatedObject, Formatting.Indented);
         webClient.Headers["content-type"] = "application/json";
         /* Always returns a byte[] array data as a response. */
         var response_data = webClient.UploadString(url, "POST", data);
@@ -60,7 +70,17 @@ public class ObjectsAPI: MonoBehaviour {
         Debug.LogWarning(responseString);
         return JsonConvert.DeserializeObject<UnityPrimitive>(response_data);
 #else
-        
+        var client = new Windows.Web.Http.HttpClient();
+        var content = new Windows.Web.Http.HttpStringContent(data, Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
+        Windows.Web.Http.HttpResponseMessage response = await client.PostAsync(new Uri(url), content);
+        UnityPrimitive result = null;
+        if (response.IsSuccessStatusCode)
+        {
+            var stringres = await response.Content.ReadAsStringAsync();
+            result = JsonConvert.DeserializeObject<UnityPrimitive>(stringres);
+        }
+
+        return result;
 #endif
     }
 }

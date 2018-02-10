@@ -553,11 +553,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: MixedRelality-Dynamic
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 80354792dec0d401
   metroApplicationDescription: MixedRelality-Dynamic
   wsaImages: {}
   metroTileShortName: MixedRelality-Dynamic
@@ -658,7 +658,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 7d1ee1da-0f91-4e3e-bc89-997f4d0b5171
   projectName: MixedRelality-Dynamic
   organizationId: meulta

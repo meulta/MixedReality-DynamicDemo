@@ -1,0 +1,9 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <UnityWSASolutionName>MixedRelality-Dynamic</UnityWSASolutionName>
+        <UnityWSASolutionDir>C:\wks\meulta\MixedReality-DynamicDemo\src\Unity\MixedReality-Dynamic\UWP\</UnityWSASolutionDir>
+        <UnityProjectDir>C:\wks\meulta\MixedReality-DynamicDemo\src\Unity\MixedReality-Dynamic\</UnityProjectDir>
+        <UnityWSAPlayerDir>D:\Program Files\Unity\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
+        <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
+    </PropertyGroup>
+</Project>

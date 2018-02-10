@@ -8,7 +8,7 @@ namespace MixedRealityData.Models
         public string Id { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public int Type { get; set; }
 
         [JsonProperty("vector")]
         public Vector3 Vector { get; set; }

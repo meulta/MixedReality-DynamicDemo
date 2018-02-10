@@ -14,8 +14,6 @@ public class SceneStartup : MonoBehaviour
     void Start()
     {
         Load3DObjects();
-
-        
     }
 
     async void Load3DObjects()
@@ -23,7 +21,7 @@ public class SceneStartup : MonoBehaviour
         IEnumerable<UnityPrimitive> objects = await ObjectsAPI.FetchSceneData();
         foreach (var obj in objects)
         {
-            var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            var go = GameObject.CreatePrimitive((PrimitiveType)obj.Type);
             go.transform.position = new UnityEngine.Vector3(obj.Vector.X, obj.Vector.Y, obj.Vector.Z);
             var draggableHandComponent = go.AddComponent<HandDraggable>();
             draggableHandComponent.RotationMode = HandDraggable.RotationModeEnum.LockObjectRotation;
@@ -31,11 +29,5 @@ public class SceneStartup : MonoBehaviour
             var storedObjectComponent = go.AddComponent<StoredObject>();
             storedObjectComponent.storedObject = obj;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
