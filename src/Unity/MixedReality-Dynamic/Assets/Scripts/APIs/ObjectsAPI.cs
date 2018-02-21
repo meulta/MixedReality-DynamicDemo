@@ -11,7 +11,7 @@ using UnityEngine.Networking;
 
 public class ObjectsAPI: MonoBehaviour {
 
-    private static string UrlTemplate = "https://dynamicmr.azurewebsites.net/api/{0}?code=1ikEUkA26LG9KPsOAczkZ6tzDxYMeMMAAoM2t2pbKVPI0l7FrJoUrA==";
+    private static string UrlTemplate = "http://dynamicmr.azurewebsites.net/api/{0}?code=1ikEUkA26LG9KPsOAczkZ6tzDxYMeMMAAoM2t2pbKVPI0l7FrJoUrA==";
 
     public static async Task<IEnumerable<UnityPrimitive>> FetchSceneData()
     {
